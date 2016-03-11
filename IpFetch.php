@@ -52,5 +52,21 @@ namespace Vender;
 
         }
 
+        private function curl_string ($url,$user_agent = "",$proxy = ""){
+
+            $ch = curl_init();
+            if($proxy) curl_setopt ($ch, CURLOPT_PROXY, $proxy);
+            curl_setopt ($ch, CURLOPT_URL, $url);
+            if($user_agent) curl_setopt ($ch, CURLOPT_USERAGENT, $user_agent);
+//        curl_setopt ($ch, CURLOPT_COOKIEJAR, "c:\cookie.txt");
+            curl_setopt ($ch, CURLOPT_HEADER, 1);
+            curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt ($ch, CURLOPT_TIMEOUT, 120);
+            $result = curl_exec ($ch);
+            curl_close($ch);
+            return $result;
+
+        }
 
     }
