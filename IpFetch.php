@@ -1,5 +1,6 @@
 <?php
-namespace Vender;
+
+//namespace Vender;
     /**
      * Class IpFetch
      */
@@ -58,7 +59,7 @@ namespace Vender;
             if($proxy) curl_setopt ($ch, CURLOPT_PROXY, $proxy);
             curl_setopt ($ch, CURLOPT_URL, $url);
             if($user_agent) curl_setopt ($ch, CURLOPT_USERAGENT, $user_agent);
-//        curl_setopt ($ch, CURLOPT_COOKIEJAR, "c:\cookie.txt");
+            curl_setopt ($ch, CURLOPT_COOKIEJAR, "/tmp/cookie.txt");
             curl_setopt ($ch, CURLOPT_HEADER, 1);
             curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 1);
